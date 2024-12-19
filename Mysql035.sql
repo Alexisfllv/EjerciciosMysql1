@@ -200,3 +200,138 @@ from inscripciones
 where documento = '22333444';
 
 
+-- Ejercicio 3 tabla Peliculas
+
+CREATE TABLE peliculas(
+codigo int auto_increment primary key,
+titulo varchar(30) not null,
+actor varchar(30) ,
+duracion int unsigned,
+check (duracion <=200) );
+
+describe peliculas;
+
+insert into peliculas (titulo,actor,duracion)
+  values('Mision imposible','Tom Cruise',120);
+ insert into peliculas (titulo,actor,duracion)
+  values('Harry Potter y la piedra ','Daniel R.',180);
+ insert into peliculas (titulo,actor,duracion)
+  values('Harry Potter y la camara ','Daniel R.',190);
+ insert into peliculas (titulo,actor,duracion)
+  values('Mision imposible 2','Tom Cruise',120);
+ insert into peliculas (titulo,actor,duracion)
+  values('Mujer bonita','Richard Gere',120);
+ insert into peliculas (titulo,actor,duracion)
+  values('Tootsie','D. Hoffman',90);
+ insert into peliculas (titulo,actor,duracion)
+  values('Un oso rojo',null,100);
+ insert into peliculas (titulo,actor,duracion)
+  values('Elsa y Fred','China Zorrilla',110);
+ insert into peliculas (titulo,actor,duracion)
+  values('Mrs. Johns','Richard Gere',180);
+
+
+-- duracion mas grande de la pelicula
+select max(duracion) from peliculas;
+
+select actor,titulo 
+from peliculas
+order by duracion desc
+limit 1;
+
+-- promedio duracion de peliculas
+select avg(duracion) as duracion_promedio
+from peliculas;
+
+-- cantidad con el titulo que empiecen con Harry
+select count(*) 
+from peliculas
+where titulo like 'Harry%';
+
+-- total de minutos de las peliculas donde actual Richard Gere
+select Sum(duracion)
+from peliculas
+where actor= 'Richard Gere';
+
+drop table if exists autos;
+
+create table autos(
+patente char(6) primary key,
+marca varchar(20),
+modelo char(4),
+precio decimal(8,2) unsigned
+);
+
+describe autos;
+
+ insert into autos
+  values('ACD123','Fiat 128','1970',15000);
+ insert into autos
+  values('ACG234','Renault 11','1990',40000);
+ insert into autos
+  values('BCD333','Peugeot 505','1990',80000);
+ insert into autos
+  values('GCD123','Renault Clio','1990',70000);
+ insert into autos
+  values('BCC333','Renault Megane','1998',95000);
+ insert into autos
+  values('BVF543','Fiat 128','1975',20000);
+
+
+-- muestre el carro mas caro y mas barato
+select 
+max(precio) as caro,
+min(precio) as barato
+from autos; 
+
+-- el carro mas caro de 1990
+select max(precio)
+from autos
+where modelo = '1990';
+
+
+-- promedio de los precios de los autos Fiat 128
+select avg(precio)
+from autos
+where marca = 'Fiat 128';
+
+-- calcule el valor en dinero de todos los autos renault con modelo menores a 1995
+select 
+sum(precio) as valor_total
+from autos
+where marca like 'Renault%'
+and
+modelo < 1995;
+
+drop table if exists facturas;
+
+create table facturas(
+numero int(10) zerofill,
+descripcion varchar(30),
+preciooprtunidad decimal(5,2) unsigned,
+cantidad tinyint unsigned);
+
+ insert into facturas values(504,'escuadra 20 cm.',2.5,100);
+ insert into facturas values(504,'escuadra 50 cm.',5,80);
+ insert into facturas values(2002,'compas plastico',8,120);
+ insert into facturas values(2002,'compas metal',15.4,100);
+ insert into facturas values(2002,'escuadra 20 cm.',2.5,100);
+ insert into facturas values(4567,'escuadra 50 cm.',5,200);
+
+-- la cantidad de items de la factura numero 2002
+select count(*)
+from facturas
+where numero = '2002';
+
+
+-- sumar cantidad de numero  = 2002
+select sum(cantidad)
+from facturas
+where numero = '2002';
+
+-- muestre el total en dinero d ela factura = 504
+
+select sum(cantidad * preciooprtunidad)
+from facturas
+where numero = '504';
+
