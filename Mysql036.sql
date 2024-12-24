@@ -58,3 +58,9 @@ GROUP BY editorial
 HAVING editorial<>'Planeta';
 
 SELECT * FROM libros;
+
+
+
+
+
+
