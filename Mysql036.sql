@@ -26,11 +26,13 @@ VALUES
 SELECT * FROM libros;
 
 -- CANTIDAD DE LIBROS POR EDITORIAL
-SELECT editorial, COUNT(*) FROM libros
+SELECT editorial, COUNT(*) 
+FROM libros
 GROUP BY editorial;
 
 -- CANTIDAD DE LIBROS POR EDITORIAL , PERO SOLO CONTANDO QUE SEAN MAYORES A 2
-SELECT editorial, COUNT(*) FROM libros
+SELECT editorial, COUNT(*) 
+FROM libros
 GROUP BY editorial
 HAVING COUNT(*)>2;
 
@@ -57,9 +59,44 @@ FROM libros
 GROUP BY editorial
 HAVING editorial<>'Planeta';
 
-SELECT * FROM libros;
+-- Cantidad de libros , sin tener en cuenta los que tienen precio nulo ,
+-- agrupados por editorial , rechanzando los de editorial planeta
 
+select 
+editorial,
+count(*) as cantidadLibros
+from libros
+WHERE precio is not null
+group by editorial
+having editorial <> "Planeta";
 
+-- promedio de precios agrupados por editorial , 
+-- de las editoriales que tienen mas de 2 libros
+
+select 
+editorial,
+avg(precio) as precios
+from libros
+group by editorial
+having count(*) >2;
+
+-- mayor valor de los libros , agrupados por editorial , luego seleccionar las filas
+-- que tengan un valor mayor o igual a 30
+
+select
+editorial,
+max(precio)
+from libros
+group by editorial
+having max(precio) >= 30;
+
+-- alias
+select
+editorial,
+max(precio) as mayor
+from libros
+group by editorial
+having mayor >= 30;
 
 
 
