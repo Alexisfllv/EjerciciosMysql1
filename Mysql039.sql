@@ -1,73 +1,118 @@
--- Alias   as
+-- Clave primaria compuesta
 
-drop table if exists libros;
+drop table if exists vehiculos;
 
-create table libros(
-  codigo int unsigned auto_increment,
-  titulo varchar(50) not null,
-  autor varchar(30),
-  editorial varchar(15),
-  precio decimal(5,2),
-  primary key (codigo)
+
+create table vehiculos(
+  patente char(6) not null,
+  tipo char(4),
+  horallegada time not null,
+  horasalida time,
+  primary key(patente,horallegada)
+ );
+
+insert into vehiculos (patente,tipo,horallegada,horasalida)
+  values('ACD123','auto','8:30','9:40');
+insert into vehiculos (patente,tipo,horallegada,horasalida)
+  values('AKL098','auto','8:45','11:10');
+insert into vehiculos (patente,tipo,horallegada,horasalida)
+  values('HGF123','auto','9:30','11:40');
+insert into vehiculos (patente,tipo,horallegada,horasalida)
+  values('DRT123','auto','15:30',null);
+insert into vehiculos (patente,tipo,horallegada,horasalida)
+  values('FRT545','moto','19:45',null);
+insert into vehiculos (patente,tipo,horallegada,horasalida)
+  values('GTY154','auto','20:30','21:00');
+  
+describe vehiculos;
+
+select * from vehiculos;
+
+insert into vehiculos (patente,tipo,horallegada,horasalida)
+   values('ACD123','auto','16:00',null);
+
+insert into vehiculos (patente,tipo,horallegada,horasalida)
+  values('ACD123','auto','16:00',null);
+  
+-- eliminar hora de una columna  
+alter table vehiculos drop horallegada;
+
+delete from vehiculos
+  where patente='ACD123';
+  
+  
+-- problemas 1
+
+
+drop table if exists prestamos;
+
+create table prestamos(
+  titulo varchar(40) not null,
+  documento char(8) not null,
+  fechaprestamo date not null,
+  fechadevolucion date,
+  devuelto char(1) default 'N',
+  primary key(titulo,fechaprestamo)
+ );
+
+
+describe prestamos;
+
+ insert into prestamos (titulo,documento,fechaprestamo)
+  values('Manual de 1 grado','22333444','2006-07-10');
+ insert into prestamos (titulo,documento,fechaprestamo)
+  values('Manual de 1 grado','22333444','2006-07-20');
+ insert into prestamos (titulo,documento,fechaprestamo)
+  values('Manual de 1 grado','23333444','2006-07-15');
+ insert into prestamos (titulo,documento,fechaprestamo)
+  values('El aleph','22333444','2006-07-10');
+ insert into prestamos (titulo,documento,fechaprestamo)
+  values('El aleph','30333444','2006-08-10');
+
+
+select * from prestamos;
+
+
+-- ingreso de un valor con clave repetida:
+insert into prestamos (titulo,documento,fechaprestamo)
+  values('Manual de 1 grado','25333444','2006-07-10');
+
+
+
+-- problema 1 prestamos
+
+drop table if exists prestamos;
+
+create table prestamos(
+  titulo varchar(40) not null,
+  documento char(8) not null,
+  fechaprestamo date not null,
+  fechadevolucion date,
+  devuelto char(1) default 'N',
+  primary key(titulo,fechaprestamo)
  );
  
- insert into libros (titulo,autor,editorial,precio)
-  values('El aleph','Borges','Planeta',15);
-insert into libros (titulo,autor,editorial,precio)
-  values('Martin Fierro','Jose Hernandez','Emece',22.20);
-insert into libros (titulo,autor,editorial,precio)
-  values('Antologia poetica','Borges','Planeta',40);
-insert into libros (titulo,autor,editorial,precio)
-  values('Aprenda PHP','Mario Molina','Emece',18.20);
-insert into libros (titulo,autor,editorial,precio)
-  values('Cervantes y el quijote','Borges','Paidos',36.40);
-insert into libros (titulo,autor,editorial,precio)
-  values('Manual de PHP', 'J.C. Paez', 'Paidos',30.80);
-insert into libros (titulo,autor,editorial,precio)
-  values('Harry Potter y la piedra filosofal','J.K. Rowling','Paidos',45.00);
-insert into libros (titulo,autor,editorial,precio)
-  values('Harry Potter y la camara secreta','J.K. Rowling','Paidos',46.00);
-insert into libros (titulo,autor,editorial,precio)
-  values('Alicia en el pais de las maravillas','Lewis Carroll','Paidos',null);
+ insert into prestamos (titulo,documento,fechaprestamo)
+  values('Manual de 1 grado','22333444','2006-07-10');
+ insert into prestamos (titulo,documento,fechaprestamo)
+  values('Manual de 1 grado','22333444','2006-07-20');
+ insert into prestamos (titulo,documento,fechaprestamo)
+  values('Manual de 1 grado','23333444','2006-07-15');
+ insert into prestamos (titulo,documento,fechaprestamo)
+  values('El aleph','22333444','2006-07-10');
+ insert into prestamos (titulo,documento,fechaprestamo)
+  values('El aleph','30333444','2006-08-10');
   
--- 
+describe prestamos;
 
-select 
-count(*) as 'Libros de Borges'
-from libros
-where autor like '%Borges';
+select * from prestamos;
 
-
-select editorial as edit
-from libros
-group by edit;
-
-select editorial ,
-count(*) as cantidad
-from libros
-group by editorial
-order by cantidad;
-
-select editorial ,
-count(*) as cantidad
-from libros
-group by editorial
-having cantidad>2;
+-- ingreso de datos con valor de pk repetida
+ insert into prestamos (titulo,documento,fechaprestamo)
+  values('Manual de 1 grado','25333444','2006-07-10');
 
 
--- Problema 1 clientes
 
-drop table if exists clientes;
-
- create table clientes (
-  codigo int unsigned auto_increment,
-  nombre varchar(30) not null,
-  domicilio varchar(30),
-  ciudad varchar(20),
-  provincia varchar (20),
-  telefono varchar(11),
-  primary key(codigo)
- );
 
 
 
