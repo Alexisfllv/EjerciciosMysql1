@@ -208,9 +208,131 @@ insert into inscripciones values ('26333777',11,'s');
 insert into inscripciones values ('26333777',10,'s');
 
 
+select * from cursos;
+select * from inscripciones;
 
 
+-- muestra cantidad de inscriptos por temas
+
+select
+c.tema,
+count(i.documento)
+from cursos as c
+left join inscripciones as i
+on c.codigo = i.codigocurso
+group by tema; 
+
+-- temas
+drop table if exists temas;
+
+create table temas
+select
+c.tema,
+count(i.documento) as cantidad
+from cursos as c
+left join inscripciones as i
+on c.codigo = i.codigocurso
+group by tema; 
+
+select * from temas;
+
+-- join , de tabla curso e inscripciones , 
+-- tema , cantdad de inscriptos , monto recaudado por tema de curso
+select 
+c.tema , 
+c.costo , 
+count(i.codigocurso) as cantidad,
+count(i.codigocurso)* c.costo as total
+from cursos as c
+join inscripciones as i
+on c.codigo = i.codigocurso
+where i.pago = 's'
+group by c.tema,c.costo;
 
 
+-- recaudacion
+
+create table recaudacion
+select 
+c.tema , 
+c.costo , 
+count(i.codigocurso) as cantidad,
+count(i.codigocurso)* c.costo as total
+from cursos as c
+join inscripciones as i
+on c.codigo = i.codigocurso
+where i.pago = 's'
+group by c.tema,c.costo;
+
+select * from recaudacion;
+
+
+-- prob 3 , libros , prestamos
+
+drop table if exists libros , prestamos;
+
+create table libros(
+  codigo int unsigned auto_increment,
+  titulo varchar(40),
+  autor varchar (30),
+  editorial varchar (15),
+  primary key (codigo)
+ );
+
+create table prestamos(
+  codigolibro int unsigned not null,
+  documento char(8) not null,
+  fechaprestamo date not null,
+  fechadevolucion date,
+  primary key(codigolibro,fechaprestamo)
+ );
+
+insert into libros values (15,'Manual de 1º grado','Moreno Luis','Emece');
+insert into libros values (28,'Manual de 2º grado','Moreno Luis','Emece');
+insert into libros values (30,'Alicia en el pais de las maravillas','Lewis Carroll','Planeta');
+insert into libros values (35,'El aleph','Borges','Emece');
+insert into libros values (45,'Aprenda PHP','Mario Molina','Planeta');
+
+insert into prestamos
+values(15,'22333444','2016-07-10','2016-07-12');
+insert into prestamos
+values(15,'22333444','2016-07-20','2016-07-21');
+insert into prestamos (codigolibro,documento,fechaprestamo)
+values(15,'23333444','2016-07-25');
+insert into prestamos (codigolibro,documento,fechaprestamo)
+values(30,'23333444','2016-07-28');
+insert into prestamos (codigolibro,documento,fechaprestamo)
+values(28,'25333444','2016-08-10');
+insert into prestamos
+values(45,'28333444','2016-08-10','2016-08-12');
+insert into prestamos (codigolibro,documento,fechaprestamo)
+values(45,'25333444','2016-09-10');
+
+
+-- titulos libros , no devueltos , mas de un mes prestado o  menos
+
+select
+l.titulo,
+if (adddate(p.fechaprestamo,30)<current_date(), 'si','no')as 'Mas de un 1 mes'
+from libros as l
+join prestamos as p
+on l.codigo = p.codigolibro
+where p.fechadevolucion is null;
+
+
+-- prestados
+
+drop table if exists prestados;
+
+create table prestados
+select
+l.titulo,
+if (adddate(p.fechaprestamo,30)<current_date(), 'si','no')as 'Mas de un 1 mes'
+from libros as l
+join prestamos as p
+on l.codigo = p.codigolibro
+where p.fechadevolucion is null;
+
+select * from prestados;
 
 
