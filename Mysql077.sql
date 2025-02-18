@@ -289,6 +289,90 @@ having promedio>=4;
 select * from aprobados;
 
 
+-- prob 3 , clientes , cuentas
+
+drop table if exists clientes,cuentas;
+
+create table clientes(
+documento char(8),
+nombre varchar(30),
+domicilio varchar(30),
+primary key(documento)
+);
+
+create table cuentas(
+numero int(8) zerofill auto_increment,
+documento char(8) not null,
+saldo decimal(9,2),
+primary key(numero)
+);
+
+
+insert into clientes (documento,nombre) values ('22333444','Juan Perez');
+insert into clientes (documento,nombre) values ('23333444','Maria Pereyra');
+insert into clientes (documento,nombre) values ('24333444','Marcos Torres');
+insert into clientes (documento,nombre) values ('25333444','Ana Juarez');
+
+insert into cuentas values(1234,'22333444',2000.60);
+insert into cuentas values(2566,'23333444',5050);
+insert into cuentas values(5987,'24333444',200);
+insert into cuentas values(14434,'25333444',8000.60);
+insert into cuentas values(28566,'23333444',8050);
+insert into cuentas values(35987,'24333444',2000);
+insert into cuentas values(35997,'24333444',2000);
+
+select * from cuentas;
+select * from clientes;
+
+-- documento cliente , nombre , cantidad cuentas de cada cliente y otra columna de total
+
+select cu.documento,cl.nombre,count(*) as cantidad,sum(cu.saldo) as total
+from cuentas as cu
+inner join clientes as cl
+on cu.documento = cl.documento
+group by cu.documento;
+
+
+drop table if exists cantidaddesaldo;
+
+create table cantidaddesaldo(
+documento varchar(10) not null,
+nombre varchar(20) not null,
+cantidad tinyint unsigned,
+total int unsigned
+);
+
+insert into cantidaddesaldo
+select cu.documento,cl.nombre,count(*) as cantidad,sum(cu.saldo) as total
+from cuentas as cu
+inner join clientes as cl
+on cu.documento = cl.documento
+group by cu.documento;
+
+select * from cantidaddesaldo;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
