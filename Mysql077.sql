@@ -167,23 +167,126 @@ where i.cuota='n';
 select * from sociosdeudores;
 
 
+-- nombre profesor, deporte , cantiad de alumnos por profesor y deporte , 
+select d.profesor,d.nombre,count(i.codigodeporte) as alumnos
+from deportes as d
+left join inscriptos as i
+on d.codigo = i.codigodeporte
+group by d.profesor,d.nombre;
+
+-- tabla alumnosporprofesor
+
+create table alumnosporprofesor(
+profesor varchar(20) not null,
+nombre varchar(20) not null,
+alumnos tinyint unsigned
+);
+
+insert into alumnosporprofesor
+(profesor,nombre,alumnos)
+select d.profesor,d.nombre,count(i.codigodeporte) as alumnos
+from deportes as d
+left join inscriptos as i
+on d.codigo = i.codigodeporte
+group by d.profesor,d.nombre;
+
+
+select * from alumnosporprofesor;
 
 
 
+-- prob 2 , alumnos,notas
+
+drop table if exists alumnos,notas;
 
 
+create table alumnos(
+documento char(8),
+nombre varchar(30),
+domicilio varchar(30)
+);
+ 
+create table notas(
+documento char(8) not null,
+nota decimal(4,2) unsigned
+);
 
 
+insert into alumnos (documento,nombre) values('22333444','Juan Perez');
+insert into alumnos (documento,nombre) values('23333444','Marta Molina');
+insert into alumnos (documento,nombre) values('24333444','Carlos Fuentes');
+insert into alumnos (documento,nombre) values('25333444','Sandra Lopez');
+
+insert into notas values('22333444',8);
+insert into notas values('23333444',3);
+insert into notas values('24333444',6);
+insert into notas values('25333444',9);
+insert into notas values('23333444',2);
+insert into notas values('24333444',5);
+insert into notas values('25333444',8);
+insert into notas values('25333444',10);
+
+select * from alumnos;
+select * from notas;
+
+-- documento,nombre alumno, promedio de notas
+
+select 
+a.documento,a.nombre,avg(n.nota)
+from alumnos as a
+inner join notas as n
+on a.documento = n.documento
+group by a.documento,a.nombre;
 
 
+-- tabla promedios
+drop table if exists promedios;
+
+create table promedios(
+documento char(8),
+nombre varchar(30),
+promedio decimal(4,2) unsigned
+);
+
+insert into promedios
+select 
+a.documento,a.nombre,avg(n.nota)
+from alumnos as a
+inner join notas as n
+on a.documento = n.documento
+group by a.documento,a.nombre;
+
+select * from promedios;
+
+-- promedios mayores iguales a 4
+
+select a.documento,a.nombre,avg(n.nota) as promedio
+from alumnos as a
+join notas as n
+on a.documento = n.documento
+group by a.documento,a.nombre
+having promedio>=4;
 
 
+-- tabla aprobados
 
+drop table if exists aprobados;
 
+create table aprobados( 
+documento char(8),
+nombre varchar(30),
+promedio decimal(4,2) unsigned
+);
 
+insert into aprobados
+select a.documento,a.nombre,avg(n.nota) as promedio
+from alumnos as a
+join notas as n
+on a.documento = n.documento
+group by a.documento,a.nombre
+having promedio>=4;
 
-
-
+select * from aprobados;
 
 
 
