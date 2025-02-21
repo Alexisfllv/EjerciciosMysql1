@@ -107,3 +107,111 @@ from profesores
 left join deportes as d
 on d.profesor = profesores.codigo
 where d.profesor is null;
+
+
+-- prob 2 , alumnos, aprobados
+
+drop table if exists alumnos,aprobados;
+
+create table alumnos(
+legajo int(3) unsigned,
+nombre varchar(30)
+);
+ 
+create table aprobados(
+legajo int(3) unsigned,
+promedio decimal(4,2) unsigned
+);
+
+
+insert into alumnos values(123,'Juan Perez');
+insert into alumnos values(223,'Marta Molina');
+insert into alumnos values(343,'Patricia Vargas');
+insert into alumnos values(456,'Hector Fuentes');
+insert into alumnos values(467,'Alfredo Lopez');
+insert into alumnos values(678,'Carla Juarez');
+
+insert into aprobados values(223,9.4);
+insert into aprobados values(456,6);
+insert into aprobados values(467,4.5);
+insert into aprobados values(678,7.8);
+
+select * from alumnos;
+select * from aprobados;
+
+-- eliminar alumnos que no se encuentrar en la tabla aprobados
+
+delete alumnos
+from alumnos 
+left join aprobados as ap
+on alumnos.legajo = ap.legajo
+where ap.legajo is null;
+
+
+
+SET SQL_SAFE_UPDATES = 0;
+
+-- prob 3 , socios,morosos
+
+drop table if exists socios, morosos;
+
+create table socios(
+documento char(8),
+nombre varchar(30),
+domicilio varchar(30),
+primary key(documento)
+);
+   
+create table morosos(
+documento char(8),
+fecha date
+);
+
+insert into socios values(234,'Juan Lopez','Colon 345');
+insert into socios values(345,'Ana Ferrero','Caseros 98');
+insert into socios values(456,'Juan Perez','Urquiza 356');
+insert into socios values(567,'Karina Torres','Peru 743');
+insert into socios values(678,'Juan Lopez','Avellaneda 234');
+insert into socios values(789,'Laura Juarez','Sarmiento 765');
+
+insert into morosos values(345,'2016-08-10');
+insert into morosos values(567,'2016-09-24');
+insert into morosos values(789,'2016-10-06');
+
+select * from socios;
+select * from morosos;
+
+-- borrar de la tabla socios los sociosmorosos
+
+delete socios
+from socios
+inner join morosos as m
+on socios.documento = m.documento;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
