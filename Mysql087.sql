@@ -64,3 +64,78 @@ where codigo not in
 (select codigoeditorial
 from libros
 where autor = 'Richard Bach');
+
+
+-- prob 1 , ciudades ,clientes;
+
+drop table if exists ciudades,clientes;
+
+create table ciudades(
+codigo int auto_increment,
+nombre varchar(20),
+primary key (codigo)
+);
+
+create table clientes (
+codigo int auto_increment,
+nombre varchar(30),
+domicilio varchar(30),
+codigociudad smallint not null,
+primary key(codigo)
+);
+
+insert into ciudades (nombre) values('Cordoba');
+insert into ciudades (nombre) values('Cruz del Eje');
+insert into ciudades (nombre) values('Carlos Paz');
+insert into ciudades (nombre) values('La Falda');
+insert into ciudades (nombre) values('Villa Maria');
+
+insert into clientes(nombre,domicilio,codigociudad) values ('Lopez Marcos','Colon 111',1);
+insert into clientes(nombre,domicilio,codigociudad) values ('Lopez Hector','San Martin 222',1);
+insert into clientes(nombre,domicilio,codigociudad) values ('Perez Ana','San Martin 333',2);
+insert into clientes(nombre,domicilio,codigociudad) values ('Garcia Juan','Rivadavia 444',3);
+insert into clientes(nombre,domicilio,codigociudad) values ('Perez Luis','Sarmiento 555',3);
+insert into clientes(nombre,domicilio,codigociudad) values ('Gomez Ines','San Martin 666',4);
+insert into clientes(nombre,domicilio,codigociudad) values ('Torres Fabiola','Alem 777',5);
+insert into clientes(nombre,domicilio,codigociudad) values ('Garcia Luis','Sucre 888',5);
+
+
+select * from ciudades;
+
+select * from clientes;
+
+-- Necesitamos conocer los nombres de las ciudades de aquellos clientes cuyo domicilio es en calle 
+-- "San Martin", empleando subconsulta.
+
+-- nombre ciudad , 
+
+select nombre
+from ciudades
+where codigo in (select codigociudad from clientes where domicilio like 'San Martin %' );
+
+-- obtenga la misma salida anterior pero empleando join
+
+select distinct ci.nombre
+from ciudades as ci
+join clientes as cl
+on codigociudad=ci.codigo
+where domicilio like 'San Martin%'; 
+
+-- Obtenga los nombre de las ciudades de los clientes cuyo apellido no comienza con una letra 
+
+select nombre
+from ciudades
+where codigo not in
+(select codigociudad from clientes where nombre like 'G%' );
+
+
+select nombre
+from ciudades
+where codigo not in
+(select codigociudad
+from clientes
+where nombre like 'G%');   
+
+select codigociudad
+from clientes
+where nombre like 'G%';   
