@@ -40,10 +40,39 @@ values('Java en 10 minutos','Marcelo Perez',2,30);
 select * from editoriales;
 select * from libros;
 
--- 
+-- listado de ambas tablas
 
 select titulo,autor,e.nombre,precio
 from libros as l
 join editoriales as e
 on e.codigo = l.codigoeditorial;
+
+
+update libros set precio = precio + (precio * 0.1)
+where codigoeditorial = 
+(select codigo from editoriales
+where nombre = 'Emece');
+
+Select codigo from editoriales
+where nombre = 'Emece';
+
+
+SET SQL_SAFE_UPDATES = 0;
+
+
+--
+select titulo,autor,nombre,precio from libros as l
+inner join editoriales as e
+on e.codigo = l.codigoeditorial;
+
+delete from libros
+where codigoeditorial =
+(select e.codigo
+from editoriales as e
+where nombre = 'Planeta');
+
+
+
+
+
 
