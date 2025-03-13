@@ -1,6 +1,5 @@
 -- Disparadores (triggers) 110
 
-
 drop table if exists pedido,historial;
 
 CREATE TABLE pedido (
