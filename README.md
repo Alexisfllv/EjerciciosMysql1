@@ -1,61 +1,68 @@
-# SQL Ya - Ejercicios Resueltos
+# SQL - Curso SQLYa (Diego Moiset)
 
-Este repositorio contiene todos los ejercicios resueltos del curso **SQL Ya** de Diego Moiset. 
+Este repositorio contiene la resolución de todos los ejercicios del curso de SQL de Diego Moiset (SQLYa). Cada tema cubierto incluye ejemplos prácticos y consultas que refuerzan los conceptos clave.
 
-## Contenido del Repositorio
+## 📌 Temas cubiertos
 
-He trabajado en distintos aspectos de SQL, incluyendo:
+### 1️⃣ Fundamentos de SQL
 
-- **Consultas básicas** (`SELECT`, `WHERE`, `ORDER BY`, `GROUP BY`)
-- **Funciones de agregación** (`SUM`, `AVG`, `COUNT`, etc.)
-- **Consultas avanzadas** (`JOIN`, `SUBQUERIES`, `HAVING`)
-- **Manipulación de datos** (`INSERT`, `UPDATE`, `DELETE`)
-- **Creación y gestión de tablas** (`CREATE TABLE`, `ALTER TABLE`, `DROP TABLE`)
-- **Índices y optimización** (`INDEX`, `EXPLAIN`)
-- **Procedimientos almacenados y triggers**
-- **Vistas y funciones en SQL**
-- **Transacciones y control de concurrencia** (`COMMIT`, `ROLLBACK`, `SAVEPOINT`)
-- **Backup y restauración de bases de datos**
-- **Particionamiento de tablas** (`RANGE`, `LIST`, `HASH`, `KEY`)
+- **SELECT, FROM, WHERE** → Consultas básicas para recuperar datos.
+- **ORDER BY, GROUP BY, HAVING** → Ordenamiento y agrupación de datos.
+- **Funciones de agregación** → SUM, AVG, COUNT, MIN, MAX.
 
-## Estructura del Repositorio
+### 2️⃣ Manipulación de Datos
 
-Cada tema tiene su propio directorio con scripts SQL y explicaciones:
+- **INSERT INTO** → Inserción de datos en tablas.
+- **UPDATE, DELETE** → Modificación y eliminación de datos.
+- **TRUNCATE** → Vaciar una tabla sin eliminar su estructura.
 
-```
-📂 SQL_Ya_Resueltos
- ├── 📂 01_Consultas_Basicas
- │   ├── consultas.sql
- │   ├── README.md
- ├── 📂 02_Funciones_Agregacion
- │   ├── funciones.sql
- │   ├── README.md
- ├── 📂 03_Joins_Subqueries
- │   ├── joins_subqueries.sql
- │   ├── README.md
- ├── 📂 04_Procedimientos_Triggers
- │   ├── procedimientos.sql
- │   ├── triggers.sql
- │   ├── README.md
- ├── ...
-```
+### 3️⃣ Creación y Gestión de Tablas
 
-## Cómo Usar los Ejercicios
+- **CREATE TABLE** → Definir nuevas tablas con claves primarias y foráneas.
+- **ALTER TABLE** → Modificar la estructura de una tabla (agregar/eliminar columnas).
+- **DROP TABLE** → Eliminar una tabla permanentemente.
 
-Para probar los scripts en tu base de datos MySQL, simplemente ejecuta:
+### 4️⃣ Relaciones y Claves
 
-```sql
-SOURCE ruta/al/archivo.sql;
-```
+- **PRIMARY KEY & FOREIGN KEY** → Definición de claves para asegurar la integridad referencial.
+- **JOINS** → INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN.
+- **SELF JOIN** → Relación de una tabla consigo misma.
 
-O copia y pega el código en tu cliente SQL favorito.
+### 5️⃣ Índices y Optimización
 
-## Próximos Pasos
+- **INDEX** → Creación de índices para mejorar la velocidad de búsqueda.
+- **UNIQUE INDEX** → Asegurar valores únicos en columnas específicas.
 
-Ahora que he completado el curso, me enfocaré en:
+### 6️⃣ Procedimientos Almacenados y Funciones
 
-- Optimización de consultas SQL.
-- Diseño avanzado de bases de datos.
-- Integración de SQL con aplicaciones backend.
+- **Stored Procedures** → Creación de procedimientos reutilizables para automatizar tareas.
+- **Funciones** → Funciones definidas por el usuario para cálculos específicos.
 
----
+### 7️⃣ Triggers (Disparadores)
+
+- **BEFORE & AFTER INSERT/UPDATE/DELETE** → Capturar eventos y realizar acciones automáticas.
+- **Ejemplo**: Registro de auditoría en una tabla `log_errores` al detectar cambios en `usuarios`.
+
+### 8️⃣ Transacciones y Control de Concurrencia
+
+- **START TRANSACTION, COMMIT, ROLLBACK** → Manejo de transacciones para garantizar la integridad de datos.
+- **SAVEPOINT** → Creación de puntos de control dentro de una transacción.
+
+### 9️⃣ Tablas Temporales
+
+- **TEMPORARY TABLES** → Tablas que existen solo durante la sesión actual.
+- **Ejemplo**: Creación de una tabla temporal basada en una consulta `SELECT INTO`.
+
+### 🔟 Respaldo y Recuperación de Datos
+
+- **mysqldump** → Copia de seguridad de bases de datos.
+- **IMPORT & EXPORT** → Restauración de datos desde un archivo de respaldo.
+
+### 🔢 Particionamiento de Tablas (para Bases de Datos Grandes)
+
+- **RANGE** → Dividir los datos según un rango de valores.
+- **LIST** → Particionamiento basado en valores específicos.
+- **HASH** → Distribución uniforme de datos usando una función hash.
+- **KEY** → Uso de claves primarias para definir particiones.
+
+
