@@ -1,4 +1,4 @@
--- VALORES NUMERICOS SIN SIGNOS
+-- Valores numéricos sin signo (unsigned) 15
 DROP TABLE IF EXISTS persona;
 
 CREATE TABLE  persona(
