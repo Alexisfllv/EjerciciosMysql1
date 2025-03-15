@@ -1,4 +1,4 @@
--- FUNCIONES DEL USO DE LA FECHA Y HORA
+-- Funciones para el uso de fecha y hora 27
 
 DROP TABLE IF EXISTS prestamos;
 
