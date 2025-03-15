@@ -1,4 +1,4 @@
--- VALORES POR DEFECTO DE UNA TABLA , NULL , NOT NULL
+-- Valores por defecto., NULL , NOT NULL 20
 
 DROP TABLE IF EXISTS carro;
 CREATE TABLE carro(
