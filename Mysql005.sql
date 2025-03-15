@@ -1,4 +1,4 @@
--- Tipos de datos basicos de una tabla
+-- Tipos de datos basicos de una tabla 5
 
 /**
 INT , VARCHAR, CHAR,FLOAT,DOUBLE,DATE,TIME,DATETIME
@@ -14,7 +14,7 @@ autor VARCHAR(20),
 editorial VARCHAR(15),
 precio FLOAT,
 cantidad INTEGER
-)
+);
 
 -- INSERTAR REGISTROS A UNA TABLA
 INSERT INTO libros
