@@ -1,4 +1,4 @@
--- VALORES NULL / NULOS
+-- Valores null 14
 
 DROP TABLE IF EXISTS libros;
 
