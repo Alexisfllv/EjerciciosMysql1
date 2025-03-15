@@ -1,4 +1,4 @@
--- OPERADOR LOGICOS  (AND OR NOT)
+-- Operadores Lógicos (and - or - not) 29
 -- and - y , or - y/o , xor - o , not - no ;
 
 
