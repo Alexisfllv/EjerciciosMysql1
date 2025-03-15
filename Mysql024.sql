@@ -1,4 +1,4 @@
--- COLUMNAS CALCULADAS
+-- Columnas calculadas 24
 
 DROP TABLE IF EXISTS libros;
 CREATE TABLE libros(
