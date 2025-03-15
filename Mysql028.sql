@@ -1,4 +1,4 @@
--- CLAUSULA ORDER BY
+-- Cláusula order by del select 28
 DROP TABLE IF EXISTS libros;
 
 CREATE TABLE libros(
