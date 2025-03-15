@@ -1,3 +1,4 @@
+-- Valores inválidos 21
 -- INGRESO DE CAMPOS EN VALORES INVALIDOS
 -- Creación de la tabla 'ejemplo' con diferentes tipos de datos
 CREATE TABLE ejemplo (
