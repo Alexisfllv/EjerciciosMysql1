@@ -1,4 +1,4 @@
--- CLAVE PRIMARIA
+-- Clave primaria 11
 
 DROP TABLES IF EXISTS usuarios;
 
