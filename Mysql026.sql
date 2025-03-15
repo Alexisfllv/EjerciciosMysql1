@@ -1,4 +1,4 @@
--- FUNCIONES MATEMATICAS 
+-- Funciones matemáticas 26
 DROP TABLE IF EXISTS libros;
 
 CREATE TABLE libros(
