@@ -1,3 +1,5 @@
+-- Tipos de datos 16
+
 -- Tipos de datos de texto
 VARCHAR(n)      -- Cadena de caracteres de longitud variable con un máximo de n caracteres.
 CHAR(n)         -- Cadena de caracteres de longitud fija de exactamente n caracteres.
