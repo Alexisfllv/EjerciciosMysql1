@@ -1,3 +1,7 @@
+-- Introducción 1
+
+
+
 -- creacion de una base de datos
 create database administracion;
 
