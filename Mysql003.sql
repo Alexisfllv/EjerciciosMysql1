@@ -1,4 +1,4 @@
-
+-- Creacion de tabla (create,show,describe,drop) 3
 -- ver la lista de datos
 SELECT * FROM usuarios;
 
