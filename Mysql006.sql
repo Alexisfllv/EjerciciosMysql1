@@ -1,4 +1,4 @@
--- RECUPERACION DE VISTAS CAMPOS SELECT
+-- Recuperación de algunos campos (select) 6
 
 DROP TABLE IF EXISTS libros;
 -- CREAR
