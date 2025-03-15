@@ -1,4 +1,4 @@
--- TIPOS DE DATOS NUMERICOS
+-- Tipos de datos (numéricos) 18
 
 DROP TABLE IF EXISTS nubes;
 CREATE TABLE nubes(
