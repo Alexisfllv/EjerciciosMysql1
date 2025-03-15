@@ -10,6 +10,6 @@ VALUES
 
 -- eliminar un registro de la tabla con una condicion
 DELETE FROM usuarios
-WHERE nombre = 'Aleixs';
+WHERE nombre = 'Alexis';
 
 
