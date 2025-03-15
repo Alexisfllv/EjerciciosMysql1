@@ -1,4 +1,4 @@
--- OPERACIONES RELACIONALES = <> < < = > > = 
+-- Operadores Relacionales = <> < <= > >= 8
 /**
 = IGUAL , <> DISTINTO 
 **/
