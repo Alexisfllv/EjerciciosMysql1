@@ -1,4 +1,4 @@
--- COMANDO TRUNCATE TABLE
+-- Comando truncate table 13
 
 DROP TABLE IF EXISTS libros;
 
