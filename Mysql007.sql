@@ -1,4 +1,4 @@
--- RECUPERAR INFORMACION SELECT WHERE
+-- Recuperación de registros específicos (select - where) 7
 
 DROP TABLE IF EXISTS usuarios;
 
