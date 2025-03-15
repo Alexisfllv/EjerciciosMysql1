@@ -1,3 +1,4 @@
+-- Atributo zerofill en una columna de una tabla 23
 -- ATRIBUTO ZEROFILL QUE SE AGREGAR CON EL ATRIBUTO USIGNED
 
 DROP TABLE IF EXISTS nota;
