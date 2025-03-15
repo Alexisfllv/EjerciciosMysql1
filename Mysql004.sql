@@ -1,3 +1,5 @@
+-- registro y recuperacion (insert,select) 4
+
 -- Eliminar un tabla si existe
 DROP TABLE IF EXISTS agenda;
 
