@@ -1,4 +1,4 @@
--- Creacion de tablas en mysql
+-- Show databases 2
 create database adm;
 
 -- ver tablas 
