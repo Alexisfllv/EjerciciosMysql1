@@ -1,3 +1,4 @@
+-- Tipos de datos (texto) 17
 -- TIPO TEXT , ALMACENA CANTIDAD DE TEXTO GRANDE
 
 DROP TABLE IF EXISTS autos;
