@@ -1,4 +1,4 @@
--- DROP TABLE , WHERE
+-- Borrado de registros de una tabla (delete) 9
 
 DROP TABLE IF EXISTS usuarios;
 CREATE TABLE usuarios (
