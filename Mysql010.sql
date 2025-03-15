@@ -1,3 +1,4 @@
+-- Modificación de registros de una tabla (update) 10
 -- SQL UPDATE
 
 DROP TABLE IF EXISTS usuarios;
