@@ -1,3 +1,4 @@
+-- Atributo default en una columna de una tabla 22
 -- ATRIBUTO DEFAULT
 
 DROP TABLE IF EXISTS mascota;
