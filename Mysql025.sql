@@ -1,4 +1,4 @@
--- MANEJOS PARA TEXTOS
+-- Funciones para el manejo de cadenas 25
 
 DROP TABLE IF EXISTS libros;
 
