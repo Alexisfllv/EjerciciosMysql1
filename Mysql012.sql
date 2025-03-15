@@ -1,4 +1,4 @@
--- CAMPO AUTOINCREMENTADO
+-- Campo entero con autoincremento 12
 
 DROP TABLE IF EXISTS libros;
 
