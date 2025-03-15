@@ -1,3 +1,4 @@
+-- Tipos de datos (fechas y horas) 19
 -- TIPOS DE DATOS DATE/TIME/timeStamp
 
 DROP TABLE IF EXISTS compra;
