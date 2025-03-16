@@ -1,4 +1,4 @@
--- BUSQUEDA POR LIKE / NOT LIKE
+-- 	Búsqueda de patrones (like y not like) 31
 
 DROP TABLE IF EXISTS libros;
 
