@@ -1,4 +1,4 @@
--- REGEXP patrones de busqueda SELECT 
+-- REGEXP patrones de busqueda SELECT  32
 DROP TABLE IF EXISTS libros;
 
 CREATE TABLE libros(
