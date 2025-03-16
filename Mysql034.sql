@@ -1,3 +1,4 @@
+-- 	Funciones de agrupamiento (count - max - min - sum - avg) 34
 -- FUNCIONES DE AGRUPAMIENTO
 -- COUNT , MAX , MIN ,SUM , AVG
 
