@@ -1,5 +1,4 @@
 -- Crear tabla a partir de otras (create - insert - join) 74
-
 drop table if exists libros, editoriales,cantidadporeditorial;
 
 create table libros(
