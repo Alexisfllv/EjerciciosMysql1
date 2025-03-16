@@ -2,7 +2,6 @@
 
 drop table libros, editoriales;
 
-
 create table libros(
   codigo int unsigned auto_increment,
   titulo varchar(40) not null,
