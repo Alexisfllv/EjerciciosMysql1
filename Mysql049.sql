@@ -1,5 +1,4 @@
 -- alter table , add 49
-
 drop table if exists libros;
 
 
