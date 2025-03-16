@@ -1,4 +1,4 @@
--- index comun INDEX
+-- index comun INDEX 42
 
 drop table if exists libros;
 
