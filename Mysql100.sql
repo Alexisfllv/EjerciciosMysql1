@@ -1,5 +1,4 @@
 -- Procedimientos almacenados (parámetros de entrada) 100
-
 -- libros
 
 drop table if exists libros;
