@@ -1,4 +1,4 @@
--- tipos de datos blob text
+-- tipos de datos blob text 59
 
 drop table if exists peliculas;
 
