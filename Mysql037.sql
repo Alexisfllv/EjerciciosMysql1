@@ -1,4 +1,4 @@
--- DISTINCT
+-- DISTINCT 37
 
 drop table if exists libros;
 
