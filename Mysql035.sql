@@ -1,3 +1,4 @@
+-- Agrupar registros (group by) 35
 DROP TABLE IF EXISTS visitantes;
 
 
