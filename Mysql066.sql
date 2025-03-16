@@ -1,6 +1,5 @@
 -- Varias tablas , cross join 66
 
-
 drop table if exists comidas, postres;
 
 create table comidas(
