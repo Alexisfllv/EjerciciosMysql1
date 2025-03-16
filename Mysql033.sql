@@ -1,4 +1,4 @@
--- CONTAR REGISTROS (COUNT)
+-- Contar registros (count) 33
 DROP TABLE IF EXISTS libros;
 
 CREATE TABLE libros(
