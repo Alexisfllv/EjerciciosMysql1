@@ -1,4 +1,3 @@
-
 -- varias tablas , join 62
 
 drop table if exists libros, editoriales;
