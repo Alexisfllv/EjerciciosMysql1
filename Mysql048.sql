@@ -1,4 +1,4 @@
--- REPLACE 48 , reemplazar un registros
+-- REPLACE  , reemplazar un registros 48
 
 drop table if exists libros;
 
